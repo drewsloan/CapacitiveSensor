@@ -224,7 +224,9 @@ void directModeOutput(IO_REG_TYPE pin)
 #define interrupts() portEXIT_CRITICAL(&mux);}
 //#warning, code is copied from "ESP32 OneWire testing"
 
-#elif defined(__SAMD21G18A__)
+#elif defined(__SAMD21G18A__) || defined(__SAMD21G17A__) || \
+      defined(__SAMD21J18A__) || defined(__SAMD21G17A__) || \
+      defined(__SAMD21E18A__) || defined(__SAMD21E17A__)
 // runs extremely slow/unreliable on Arduino Zero - help wanted....
 #define PIN_TO_BASEREG(pin)             portModeRegister(digitalPinToPort(pin))
 #define PIN_TO_BITMASK(pin)             (digitalPinToBitMask(pin))
